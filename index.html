@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+        <link rel="shortcut icon" href="img/icon.jpg"/>
+    </head>
+    <body onload="showScore()">
+        <center>
+            <h4 class="title">Rock Paper Scissors</h4>
+        </center>
+        <button class="game-mode btn-sm" data-toggle="modal" data-target="#settingsModal"><i class="info fa fa-cogs"></i> Settings</button>
+        <button class="instructions btn-sm" data-toggle="modal" data-target="#helpModal"><i class="info fa fa-info-circle"></i> Instructions</button>
+        <br/>
+
+        <div class="play-area">
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                            <h3 class="names" id="playerName">You</h3>
+
+                            <button class="select-btn" onclick="playGame('rock')"><img class="h-type" src="img/rock.jpg" alt="rock"/> </button>
+                            <br/>
+                            <br/>
+                    
+                            <button class="select-btn" onclick="playGame('paper')"><img class="h-type" src="img/paper.jpg" alt="paper"/> </button>
+                            <br/>
+                            <br/>
+
+                            <button class="select-btn" onclick="playGame('scissors')"><img class="h-type" src="img/scissors.jpg" alt="scissors"/></button>
+                            <br/>
+                            <br/>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center><span id="result"></span> </center>
+                        <br/>
+                        <center>
+                            <span class="check">
+                                <button class="show-play" id="show-hplay"></button> VS 
+                                 <button class="show-play" id="show-cplay"></button>
+                            </span>
+                        </center>
+                    </td>
+
+                    <td class="right">
+                        <center>
+                            <h3 class="names" id="oppName">Computer</h3>
+
+                            <button class="select-btn" onclick="wrongPlay()"><img class="h-type" src="img/rock.jpg" alt="rock"/> </button>
+                            <br/>
+                            <br/>
+                    
+                            <button class="select-btn" onclick="wrongPlay()"><img class="h-type" src="img/paper.jpg" alt="rock"/> </button>
+                            <br/>
+                            <br/>
+
+                            <button class="select-btn" onclick="wrongPlay()"><img class="h-type" src="img/scissors.jpg" alt="rock"/></button>
+                            <br/>
+                            <br/>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+        <br/>
+
+        <!--Scoreboard-->
+        <center>
+            <div class="scoreboard" id="scoreboard">
+                
+            </div>
+        </center>
+
+
+        <!--Settings Modal-->
+        <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-body" id="content-results">
+                    <center><h4>Game settings</h4></center>
+                    
+                    <span style="font-weight: bolder;"><i class="fa fa-user-circle info" style="color: cornflowerblue;"></i> Player name</span>
+                    <input type="text" class="form-control form-control-md" id="name" placeholder="You"/>
+                    <br/>
+                    <button class="btn btn-primary btn-sm" onclick="changeName()"><i class="fa fa-paper-plane info"></i>Save Changes</button>
+                    <br/>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span style="font-weight: bolder;"><i class="fa fa-wrench info" style="color: cornflowerblue;"></i>Game Mode</span>
+                            <br/>
+                            <span><input id="comp" type="checkbox" value="computer" onchange="changeMode('computer')"/><span style="padding-left: 12px;">Computer</span></span>
+                            <br/>
+                            <br/>
+                            <span><input id="hum" type="checkbox" value="human" onchange="changeMode('human')"/><span style="padding-left: 12px;">Human</span>
+
+                            <br/>
+                        </div>
+                        <div class="col-sm-6">
+                            <center>
+                                <button class="btn btn-danger btn-sm" onclick="resetGame()"><i class="fa fa-pencil info"></i> Reset Score</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!--Instructions Modal-->
+        <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-body" id="content-results">
+                    <center><h4>Game Instructions</h4></center>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        
+        <!--Scripts-->
+        <script src="js/jquery-3.0.0.js"></script>
+  	    <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
