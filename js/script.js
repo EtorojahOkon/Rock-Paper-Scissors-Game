@@ -117,6 +117,7 @@ function addScore(winner) {
     } else {
         let a = localStorage.getItem("humanScore");
         localStorage.setItem("humanScore",  parseInt(a) + 1);
+        document.getElementById("music").play();
         document.getElementById("result").innerHTML = '<div class="alert alert-success"> You win</div>';
         showScore();
     }
